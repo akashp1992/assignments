@@ -1,0 +1,36 @@
+body {
+    font-family: sans-serif;
+    background-color: #E1F3F3;
+}
+h1 {
+    font-size: 20px;
+}
+form {
+    border: 1px solid #666;
+    padding: 5px;
+}
+div {
+    display: none;
+}
+#submit {
+    display: block;
+    background-color: forestgreen;
+    color: white;
+    border-radius: 2px;
+    border: 0px;
+}
+fieldset {
+    border: 1px solid #aaa;
+    width: 50vw;
+}
+
+fieldset, textarea, input[type="text"] {
+    border-radius: 10px;
+    display: block;
+}
+
+textarea {
+    width: 50vw;
+    height: 350px;
+}
+
