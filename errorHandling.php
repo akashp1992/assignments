@@ -152,6 +152,7 @@ function getErrorChecking($query)
                     }
                 }
                 
+                
             }
 
     //check if there's any mistakes for the currencies inputted
@@ -240,7 +241,7 @@ function getErrorChecking($query)
 
     if ($errorCounter == 0)
     {
-        if (!preg_match('/^\d+\.\d+$/', $queryString['amnt']))
+        if (!preg_match('/^[0-9]+(\.[0-9]{1,2})?$/', $queryString['amnt']))
     {
         if (!array_key_exists('format', $queryString)) //outputs xml if the format parameter is not present
         {
@@ -248,8 +249,8 @@ function getErrorChecking($query)
             $xmlError = '<?xml version="1.0" encoding="ISO-8859-1"?>'; 
             $xmlError .= "<conv>";
             $xmlError .= "<error>";
-            $xmlError .= "<code>".$xmlConfig->errorDesc->error[3]->errorCode."</code>";
-            $xmlError .= "<msg>".$xmlConfig->errorDesc->error[3]->errorMessage."</msg>";
+            $xmlError .= "<code>".$xmlConfig->errorDesc->error[7]->errorCode."</code>";
+            $xmlError .= "<msg>".$xmlConfig->errorDesc->error[7]->errorMessage."</msg>";
             $xmlError .= "</error>";
             $xmlError .= "</conv>";
             header('Content-Type: text/xml');
@@ -263,8 +264,8 @@ function getErrorChecking($query)
             $xmlError = '<?xml version="1.0" encoding="ISO-8859-1"?>'; 
             $xmlError .= "<conv>";
             $xmlError .= "<error>";
-            $xmlError .= "<code>".$xmlConfig->errorDesc->error[3]->errorCode."</code>";
-            $xmlError .= "<msg>".$xmlConfig->errorDesc->error[3]->errorMessage."</msg>";
+            $xmlError .= "<code>".$xmlConfig->errorDesc->error[7]->errorCode."</code>";
+            $xmlError .= "<msg>".$xmlConfig->errorDesc->error[7]->errorMessage."</msg>";
             $xmlError .= "</error>";
             $xmlError .= "</conv>";
             header('Content-Type: text/xml');
@@ -281,6 +282,7 @@ function getErrorChecking($query)
             }
         }
     }
+    
     }
     
 

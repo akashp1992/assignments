@@ -16,7 +16,6 @@ function postResults()
 
     //gets the filename for the rates and the currencies
     $filename = "currDataXml.xml";
-
     //loops through the simplexml object and finds the code that needs to be updated
     $currXml = simplexml_load_file($filename) or die("Error opening file");
     foreach ($currXml->rates->children() as $currency) //loops through the simplexml object and gets the currency code
@@ -31,7 +30,7 @@ function postResults()
         }
     }
     $currXml->asXML($filename); //saves the xml file
-
+    
     if ($outputFormat == "xml") //outputs xml if format is xml
     {
         xmlPostOutput($date, $currNewFloatRate, currOldRate, $currCode, $currName, $currCountry);
@@ -77,6 +76,4 @@ function jsonPostOutput($date, $newRate, $oldRate, $code, $name, $country) //fun
     $json = json_encode($xml, JSON_PRETTY_PRINT);
     echo $json;
 }
-
-
 ?>
